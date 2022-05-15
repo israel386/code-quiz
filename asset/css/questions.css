@@ -1,0 +1,38 @@
+.choice-container {
+    display: flex;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--tertiary);
+    font-size: 25px;
+    min-width: 30%;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    background-color: var(--secondary);
+}
+
+.choice-prefix {
+    color: var(--primary);
+    padding: 5px;
+}
+
+.choice-text {
+    color: var(--primary);
+    padding: 5px;
+}
+
+.correct {
+    background-color: var(--quaternary);
+}
+
+.incorrect {
+    background-color: var(--quinary);
+}
+
+@media screen and (max-width: 768px) {
+    .choice-container {
+        min-width: 40%;
+    }
+}

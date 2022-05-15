@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #ffffff;
+    --secondary: #ac3a8f;
+    --tertiary: #663aac;
+    --quaternary: #17d857;
+    --quinary: #ff0000;
+    font-size: 62.5%;
+}
+
+body {
+    background: var(--primary);
+    color: var(--grey);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    background: var(--primary);
+    padding: 30px 25px;
+    width: 100%;
+}
+
+header a {
+    color: var(--secondary);
+    text-decoration: none;
+    margin: 5px 0 20px;
+    font-size: 2rem;
+}
+
+header p {
+    float: right;
+    margin: 5px 0 20px;
+    font-size: 2rem;
+}
+
+main {
+    margin: auto;
+    width: 35%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 250px 0 0 0;
+}
+
+main h2 {
+    font-size: 30px;
+}
+
+main p {
+    font-size: 15px;
+}
+
+.start-quiz {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 0;
+    width: 100px;
+    border-radius: 10px;
+    background-color: var(--tertiary);
+}
+
+.start-quiz:hover {
+    cursor: pointer;
+    background-color: var(--secondary);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.justify-content {
+    justify-content: center;
+}
+
+.text-align {
+    text-align: center;
+}
+
+.width {
+    margin: auto;
+    width: 60%;
+}
