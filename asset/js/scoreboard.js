@@ -3,16 +3,19 @@ const saveScoreBtn = document.querySelector('#saveScoreBtn');
 const finalScore = document.querySelector('#finalScore');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
 
+// create string into a object
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 const MAX_HIGH_SCORES = 5;
 
 finalScore.innerText = mostRecentScore;
 
+// input username
 username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value;
 });
 
+// save score
 saveHighScore = e => {
     e.preventDefault();
 

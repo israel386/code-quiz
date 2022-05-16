@@ -8,6 +8,7 @@ var timeLeft = 50;
 let questionCounter = 0;
 let availableQuestions = [];
 
+// Question array
 let questions = [
     {
         question: "A very useful tool used during development and debugging for printing content to the degugger is:",
@@ -51,36 +52,17 @@ let questions = [
     }
 ];
 
-// const SCORE_POINTS = 10;
-// const MAX_QUESTIONS = 5;
-
-// startQuiz = () => {
-//     questionCounter = 0;
-//     score = 0
-//     availableQuestions = [...questions];
-//     var timeInterval = setInterval(function () {
-//         // if (timeLeft >= 1) {
-//         //     timeEl.textContent = "Time: " + timeLeft;
-//         //     timeLeft--;
-//         // }
-//         // else if (timeLeft === 0) {
-//         //     timeEl.textContent = "Time: " + timeLeft;
-//         //     clearInterval(timeInterval);
-//         // }
-//         // if (timeLeft === 0) {
-
-//         // }
-//     }, 1000);
-
-//     getNewQuestion();
-// };
 const SCORE_POINTS = 10;
 const MAX_QUESTIONS = 4;
 
+
+// Start Game
 startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
+
+    // Timer
     var timeInterval = setInterval(function () {
         if (timeLeft >= 1) {
             timeEl.textContent = "Time: " + timeLeft;
@@ -98,7 +80,7 @@ startGame = () => {
 
     getNewQuestion();
 };
-
+//question generator
 getNewQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
 
@@ -135,6 +117,7 @@ getNewQuestion = () => {
     acceptingAnswers = true;
 }
 
+// answer selection
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
         if (!acceptingAnswers) return;
