@@ -56,16 +56,16 @@ main p {
     font-size: 15px;
 }
 
-.start-quiz {
+.btn {
     color: #FFFFFF;
     text-decoration: none;
-    padding: 10px 0;
+    padding: 15px 0;
     width: 100px;
     border-radius: 10px;
     background-color: var(--tertiary);
 }
 
-.start-quiz:hover {
+.btn:hover {
     cursor: pointer;
     background-color: var(--secondary);
 }
@@ -92,4 +92,52 @@ h1 {
 .width {
     margin: auto;
     width: 60%;
+}
+
+.end-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+}
+
+input {
+    margin-bottom: 5px;
+    width: 150px;
+    padding: 50px;
+    font-size: 20px;
+    border: none;
+}
+
+input::placeholder {
+    color: #7c7878cc;
+}
+
+#username {
+    margin-bottom: 10px;
+    width: 100%;
+    outline: none;
+}
+
+#end-text {
+    font-size: 28px;
+    text-align: center;
+}
+
+#saveScoreBtn {
+    border: none;
+}
+
+.container a {
+    color: #FFFFFF;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 15px 0;
+    width: 100px;
+    border-radius: 10px;
+    background-color: var(--tertiary);
+    margin-top: 10px;
+    align-items: center;
+    min-width: 100px;
 }

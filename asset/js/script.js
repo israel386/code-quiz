@@ -51,10 +51,35 @@ let questions = [
     }
 ];
 
-const MAX_QUESTIONS = 5;
+// const SCORE_POINTS = 10;
+// const MAX_QUESTIONS = 5;
 
-startQuiz = () => {
+// startQuiz = () => {
+//     questionCounter = 0;
+//     score = 0
+//     availableQuestions = [...questions];
+//     var timeInterval = setInterval(function () {
+//         // if (timeLeft >= 1) {
+//         //     timeEl.textContent = "Time: " + timeLeft;
+//         //     timeLeft--;
+//         // }
+//         // else if (timeLeft === 0) {
+//         //     timeEl.textContent = "Time: " + timeLeft;
+//         //     clearInterval(timeInterval);
+//         // }
+//         // if (timeLeft === 0) {
+
+//         // }
+//     }, 1000);
+
+//     getNewQuestion();
+// };
+const SCORE_POINTS = 10;
+const MAX_QUESTIONS = 4;
+
+startGame = () => {
     questionCounter = 0;
+    score = 0;
     availableQuestions = [...questions];
     var timeInterval = setInterval(function () {
         if (timeLeft >= 1) {
@@ -76,49 +101,66 @@ startQuiz = () => {
 
 getNewQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
-        localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('/end.html')
+        if (score === 10) {
+            score = timeLeft - 40;
+        } else if (score === 20) {
+            score = timeLeft - 30;
+        } else if (score === 30) {
+            score = timeLeft - 20;
+        } else if (score === 40) {
+            score = timeLeft - 10;
+        } else if (score === 50) {
+            score = timeLeft;
+        };
+
+        localStorage.setItem('mostRecentScore', score);
+
+        return window.location.assign("scoreboard.html");
     };
 
-    questionCounter++
+    questionCounter++;
 
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+    const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionsIndex];
     question.innerText = currentQuestion.question;
 
     choices.forEach(choice => {
         const number = choice.dataset['number'];
         choice.innerText = currentQuestion['choice' + number];
-    })
+    });
 
     availableQuestions.splice(questionsIndex, 1);
 
     acceptingAnswers = true;
-};
+}
 
 choices.forEach(choice => {
-    choice.addEventListener("click", e => {
-        if (!acceptingAnswers) return
+    choice.addEventListener('click', e => {
+        if (!acceptingAnswers) return;
 
         acceptingAnswers = false;
         const selectedChoice = e.target;
-        const selectedAnswer = selectedChoice.dataset["number"];
+        const selectedAnswer = selectedChoice.dataset['number'];
 
-        let classToApply = selectedAnswer == currentQuestion.anwer ? "correct" : "incorrect";
-        if (classToApply === "incorrect") {
-            timeLeft = timeLeft - 10;
-        }
+        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+
+        if (classToApply === 'correct') {
+            incrementScore(SCORE_POINTS);
+        };
 
         selectedChoice.parentElement.classList.add(classToApply);
 
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply);
             getNewQuestion();
-        }, 1000);
 
+        }, 1000);
     });
 });
 
-startQuiz();
+incrementScore = num => {
+    score += num;
+};
 
+startGame();

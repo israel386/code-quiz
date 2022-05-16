@@ -10,7 +10,6 @@
 
 .choice-container:hover {
     cursor: pointer;
-    background-color: var(--secondary);
 }
 
 .choice-prefix {

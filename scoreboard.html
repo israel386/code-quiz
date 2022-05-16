@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="./asset/css/questions.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="scoreboard.html">View high scores</a>
+    </header>
+
+    <div class="container jsutify-content text-align width">
+        <div id="end" class="jsutify-content text-align width">
+            <h1 id="finalScore">0</h1>
+            <form class="end-form-container jsutify-content text-align width">
+                <h2 id="end-text">Enter your name below to save your score!</h2>
+                <input type="text" name="name" id="username" placeholder="Enter your name">
+                <button class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)"
+                    disabled>Save</button>
+            </form>
+            <div class="jsutify-content text-align width center">
+                <a href="questions.html" class="center">Play Again</a>
+                <a href="index.html" class="center">Go Home</a>
+            </div>
+        </div>
+    </div>
+    <script src="./asset/js/scoreboard.js"></script>
+</body>
+
+</html>
