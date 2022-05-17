@@ -74,7 +74,9 @@ startGame = () => {
             endQuiz();
         }
         if (timeLeft === 0) {
-
+            score = 0
+            localStorage.setItem('mostRecentScore', score);
+            window.location.assign('scoreboard.html');
         }
     }, 1000);
 
